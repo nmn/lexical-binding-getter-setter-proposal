@@ -174,6 +174,37 @@ function functionThatTakesBinding(bind binding) {
 
 ## Examples
 
+### [tc39/proposal-signals](https://github.com/tc39/proposal-signals)
+Before:
+
+```js
+const count = new Signal.State(0);
+
+// Read signal value:
+console.log('The count is: ' + count.get());
+
+// Set signal value:
+count.set(3);
+
+// Increment the count by 1.
+count.set(count.get() + 1);
+```
+
+After:
+
+```js
+bind count = new Signal.State(0);
+
+// Read signal value:
+console.log('The count is: ' + count);
+
+// Set signal value:
+count = 3
+
+// Increment the count by 1.
+count += 1
+```
+
 ### React
 
 Before:
