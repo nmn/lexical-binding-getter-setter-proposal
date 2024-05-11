@@ -254,3 +254,35 @@ export function createCounter() {
 	return #count
 }
 ```
+
+### Angular Signals
+
+Before:
+
+```js
+const count = signal(0);
+
+// Read signal value:
+console.log('The count is: ' + count());
+
+// Set signal value:
+count.set(3);
+
+// Increment the count by 1.
+count.update(value => value + 1);
+```
+
+After:
+
+```js
+bind count = signal(0);
+
+// Read signal value:
+console.log('The count is: ' + count);
+
+// Set signal value:
+count = 3
+
+// Increment the count by 1.
+count += 1
+```
