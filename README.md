@@ -46,11 +46,11 @@ function foo () {
 This lack is made obvious in many different UI libraries but is most obvious
 in cases where signals are used, such as Solid.js, and Svelte.js
 
-## Inpiration
+## Inspiration
 
 ### Svelte 5 Runes
 
-The closest inpiration for this proposal is Svelte 5's runes, which is enables
+The closest inspiration for this proposal is Svelte 5's runes, which is enables
 a similar syntax by leveraging a compiler. 
 
 ```js
@@ -223,6 +223,32 @@ return <div>
   {count}
   <button onClick={() => { count++ }}>Incr</button>
   <OtherCounter countBinding={#count} />
+</div>
+```
+
+### Qwik
+
+Before:
+
+```js
+const count = useSignal(0)
+
+return <div>
+  {count.value}
+  <button onClick$={() => count.value += 1 }>Incr</button>
+  <OtherCounter bind:count={count} />
+</div>
+```
+
+After:
+
+```js
+bind count = useSignal(0)
+
+return <div>
+  {count}
+  <button onClick$={() => { count++ }}>Incr</button>
+  <OtherCounter bind:count={#count} />
 </div>
 ```
 
