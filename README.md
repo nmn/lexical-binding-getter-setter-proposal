@@ -247,7 +247,7 @@ bind count = useSignal(0)
 
 return <div>
   {count}
-  <button onClick$={() => { count++ }}>Incr</button>
+  <button onClick$={() => count++ }>Incr</button>
   <OtherCounter bind:count={#count} />
 </div>
 ```
